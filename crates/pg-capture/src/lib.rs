@@ -1,12 +1,12 @@
 //! Two-track capture: the mic and the meeting app's audio stay separate.
 
 #[cfg(target_os = "macos")]
-pub mod macos;
+mod macos;
 pub mod target;
 pub mod track;
 
 #[cfg(target_os = "macos")]
-pub use macos::{audio_processes, shim_version};
+pub use macos::{MacCapture, audio_processes, shim_version};
 pub use target::SystemTarget;
 pub use track::TrackSummary;
 
