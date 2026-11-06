@@ -2,3 +2,21 @@
 docs/
 research_notes/
 reports/
+
+# Real call data and secrets never enter the repo
+eval/private/
+*.wav
+*.aiff
+*.opus
+*.db
+*.db-shm
+*.db-wal
+.env*
+
+# Build output
+target/
+node_modules/
+dist/
+.build/
+.swiftpm/
+.DS_Store

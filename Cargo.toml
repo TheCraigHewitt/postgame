@@ -1,0 +1,25 @@
+[workspace]
+resolver = "3"
+members = [
+    "crates/pg-analysis",
+    "crates/pg-asr",
+    "crates/pg-capture",
+    "crates/pg-cli",
+    "crates/pg-dsp",
+    "crates/pg-eval",
+    "crates/pg-llm",
+    "crates/pg-pipeline",
+    "crates/pg-store",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+license = "Apache-2.0"
+repository = "https://github.com/TheCraigHewitt/postgame"
+publish = false
+
+[workspace.dependencies]
+clap = { version = "4", features = ["derive", "string"] }
+swift-rs = { version = "1.0.9", features = ["build"] }
+thiserror = "2"

@@ -1,0 +1,39 @@
+# Dependency policy (ARCHITECTURE §18). Run: cargo deny check
+# The spike ships on Apple Silicon only, so the graph is scoped to that target.
+
+[graph]
+targets = ["aarch64-apple-darwin"]
+
+[advisories]
+version = 2
+yanked = "deny"
+
+[licenses]
+version = 2
+# cargo-deny rejects anything not listed. That is how GPL, AGPL, SSPL, Elastic
+# and non-commercial licenses stay out. Do not widen this list without review.
+allow = [
+    "Apache-2.0",
+    "Apache-2.0 WITH LLVM-exception",
+    "BSD-2-Clause",
+    "BSD-3-Clause",
+    "ISC",
+    "MIT",
+    "MPL-2.0",
+    "Unicode-3.0",
+    "Zlib",
+]
+confidence-threshold = 0.9
+unused-allowed-license = "allow"
+
+[licenses.private]
+ignore = true
+
+[bans]
+multiple-versions = "allow"
+wildcards = "deny"
+allow-wildcard-paths = true
+
+[sources]
+unknown-registry = "deny"
+unknown-git = "deny"

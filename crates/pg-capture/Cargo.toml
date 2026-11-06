@@ -1,0 +1,14 @@
+[package]
+name = "pg-capture"
+description = "Bot-free two-track audio capture"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+publish.workspace = true
+
+[dependencies]
+thiserror.workspace = true
+
+[build-dependencies]
+swift-rs.workspace = true

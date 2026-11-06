@@ -1,0 +1,16 @@
+[package]
+name = "pg-cli"
+description = "The pg command-line tool"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+publish.workspace = true
+
+[[bin]]
+name = "pg"
+path = "src/main.rs"
+
+[dependencies]
+clap.workspace = true
+pg-capture = { path = "../pg-capture" }
