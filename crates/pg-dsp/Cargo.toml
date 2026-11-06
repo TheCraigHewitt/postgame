@@ -1,0 +1,8 @@
+[package]
+name = "pg-dsp"
+description = "Resampling, clock alignment and bleed detection"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+publish.workspace = true
