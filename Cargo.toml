@@ -1,6 +1,20 @@
 [workspace]
 resolver = "3"
+# The desktop app is built with `pnpm tauri`, so plain cargo commands stay fast
+# and need no frontend build. `cargo deny` still covers it as a member.
+default-members = [
+    "crates/pg-analysis",
+    "crates/pg-asr",
+    "crates/pg-capture",
+    "crates/pg-cli",
+    "crates/pg-dsp",
+    "crates/pg-eval",
+    "crates/pg-llm",
+    "crates/pg-pipeline",
+    "crates/pg-store",
+]
 members = [
+    "apps/desktop/src-tauri",
     "crates/pg-analysis",
     "crates/pg-asr",
     "crates/pg-capture",
