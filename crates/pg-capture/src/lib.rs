@@ -2,6 +2,7 @@
 
 #[cfg(target_os = "macos")]
 mod macos;
+pub mod track;
 
 #[cfg(target_os = "macos")]
 pub use macos::shim_version;
