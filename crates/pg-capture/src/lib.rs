@@ -2,19 +2,13 @@
 
 #[cfg(target_os = "macos")]
 mod macos;
+pub mod target;
 pub mod track;
 
 #[cfg(target_os = "macos")]
 pub use macos::shim_version;
 
-/// What the system track records.
-#[derive(Debug, Clone, PartialEq, Eq)]
-pub enum SystemTarget {
-    /// Every process whose bundle ID starts with this prefix, helpers included.
-    BundlePrefix(String),
-    /// All system audio except our own process.
-    AllSystem,
-}
+pub use target::SystemTarget;
 
 #[derive(Debug, thiserror::Error)]
 pub enum CaptureError {

@@ -30,9 +30,29 @@ pub fn find_clicks(samples: &[f32], sample_rate: f64) -> Vec<f64> {
     clicks
 }
 
+/// For each system click, finds the nearest mic click within `tolerance_ms` and
+/// returns `mic - system`. Both inputs must be on the same timeline.
+pub fn click_offsets(mic: &[f64], system: &[f64], tolerance_ms: f64) -> Vec<f64> {
+    system
+        .iter()
+        .filter_map(|s| {
+            mic.iter()
+                .map(|m| m - s)
+                .min_by(|a, b| a.abs().total_cmp(&b.abs()))
+                .filter(|offset| offset.abs() <= tolerance_ms)
+        })
+        .collect()
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn pairs_clicks_and_skips_unmatched_ones() {
+        let offsets = click_offsets(&[1012.0, 5000.0, 9000.0], &[1000.0, 9005.0, 20000.0], 500.0);
+        assert_eq!(offsets, vec![12.0, -5.0]);
+    }
 
     fn with_clicks(rate: f64, seconds: usize, at_ms: &[usize]) -> Vec<f32> {
         let mut samples = vec![0.001; rate as usize * seconds];
