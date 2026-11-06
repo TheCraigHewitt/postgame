@@ -1,5 +1,7 @@
 //! macOS capture: Core Audio process taps and AVAudioEngine through PGAudio.
 
-pub mod shim;
+mod backend;
+mod shim;
 
+pub use backend::MacCapture;
 pub use shim::{audio_processes, shim_version};
