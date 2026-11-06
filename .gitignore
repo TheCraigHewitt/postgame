@@ -20,3 +20,4 @@ dist/
 .build/
 .swiftpm/
 .DS_Store
+gen/

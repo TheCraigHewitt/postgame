@@ -1,0 +1,15 @@
+[package]
+name = "postgame-desktop"
+description = "The postgame desktop app"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+publish.workspace = true
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+pg-capture = { path = "../../../crates/pg-capture" }
+tauri = { version = "2", features = [] }
