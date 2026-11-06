@@ -8,7 +8,14 @@ repository.workspace = true
 publish.workspace = true
 
 [dependencies]
+hound.workspace = true
+pg-dsp = { path = "../pg-dsp" }
+serde.workspace = true
+serde_json.workspace = true
 thiserror.workspace = true
+
+[dev-dependencies]
+tempfile.workspace = true
 
 [build-dependencies]
 swift-rs.workspace = true
