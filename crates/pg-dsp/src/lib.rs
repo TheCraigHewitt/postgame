@@ -2,3 +2,4 @@
 
 pub mod align;
 pub mod clicks;
+pub mod correlate;
